@@ -5,9 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import io.learning.socialinteractionai.utility.DatabaseUtils;
 import io.learning.socialinteractionai.conversations.ConversationRepository;
 import io.learning.socialinteractionai.profiles.ProfileRepository;
+import io.learning.socialinteractionai.utility.DatabaseUtils;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -23,9 +23,11 @@ public class SocialInteractionAiApplication
 	}
 
 	@Bean
-	public CommandLineRunner createDatabaseInstances(ProfileRepository profileRepository, ConversationRepository conversationRepository)
+	public CommandLineRunner createDatabaseInstances(ProfileRepository profileRepository,
+			ConversationRepository conversationRepository)
 	{
-		return args -> {
+		return args ->
+		{
 			DatabaseUtils.createProfile(profileRepository);
 			DatabaseUtils.createConversations(conversationRepository);
 		};
