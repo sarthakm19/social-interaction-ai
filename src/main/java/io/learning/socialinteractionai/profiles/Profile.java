@@ -1,6 +1,7 @@
 package io.learning.socialinteractionai.profiles;
 
 public record Profile(
+	String id,
     String firstName,
     String lastName,
     String bio,
