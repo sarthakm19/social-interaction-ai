@@ -28,7 +28,7 @@ public class SocialInteractionAiApplication {
                                                      ConversationRepository conversationRepository) {
         return args ->
         {
-            profileCreationService.createProfile(1);
+            profileCreationService.createProfile(10);
             DatabaseUtils.createProfile(profileRepository);
             DatabaseUtils.createConversations(conversationRepository);
         };

@@ -16,24 +16,31 @@ public class ProfileCreationService {
     private final List<String> ethnicities = List.of("Black", "White", "Asian", "Indian", "Hispanic");
     private final String gender;
 
-    public ProfileCreationService(ChatClient.Builder chatClient, @Value("social-interaction-ai.preferred.gender")String gender) {
+    public ProfileCreationService(ChatClient.Builder chatClient, @Value("social-interaction-ai.preferred.gender") String gender) {
         this.chatClient = chatClient;
         this.gender = gender;
     }
 
     public void createProfile(int numberOfProfiles) {
-        String prompt = "Create a Tinder profile persona for a " + ages.getFirst() + " year old " + ethnicities.getFirst() + " " + gender +
-                "including the first Name ,last Name , Myers-Briggs personality type and a tinder bio. Save the prfile information using the saveProfile tool.";
+        int countOfProfiles = 0;
+        for (int age : ages) {
+            for (String ethnicity : ethnicities) {
+                if (countOfProfiles > numberOfProfiles) {
+                    return;
+                }
+                String prompt = "Create a Tinder profile persona for a " + age + " year old " + ethnicity + " " + gender +
+                        "including the first Name ,last Name , Myers-Briggs personality type and a tinder bio. Save the profile information using the saveProfile tool.";
 
-        String modelResponse = chatClient
-                                .build()
-                                .prompt()
-                                .user(prompt)
-                                .tools(new ProfileToolCallBack())
-                                .call()
-                                .content();
-        log.info("Generated Profile: {}", modelResponse);
-
+                String modelResponse = chatClient
+                        .build()
+                        .prompt()
+                        .user(prompt)
+                        .tools(new ProfileToolCallBack())
+                        .call()
+                        .content();
+                countOfProfiles++;
+            }
+        }
     }
 
 }
