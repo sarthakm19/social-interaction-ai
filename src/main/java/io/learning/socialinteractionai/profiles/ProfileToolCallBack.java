@@ -17,7 +17,7 @@ public class ProfileToolCallBack {
     )
     public void saveProfile(Profile profile) {
             log.info("Saving the profile: {}", profile);
-            List<Profile> profiles = ProfileToolCallBackUtils.addToProfilesList(profile);
+            List<Profile> profiles = ProfileToolCallBackUtils.addToProfilesList(ProfileToolCallBackUtils.enrichProfileWithIdAndImageUrl(profile));
             ProfileToolCallBackUtils.createOrAddToProfileFile(profiles);
     }
 }

@@ -1,14 +1,17 @@
-package io.learning.socialinteractionai.profiles;
+package io.learning.socialinteractionai.profiles.service;
 
+import io.learning.socialinteractionai.profiles.Profile;
+import io.learning.socialinteractionai.profiles.ProfileToolCallBack;
+import io.learning.socialinteractionai.utility.ProfileToolCallBackUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Slf4j
-@Component
+@Service
 public class ProfileCreationService {
 
     private final ChatClient.Builder chatClient;
@@ -21,14 +24,14 @@ public class ProfileCreationService {
         this.gender = gender;
     }
 
-    public void createProfile(int numberOfProfiles) {
+    public List<Profile> createProfile(int numberOfProfiles) {
         int countOfProfiles = 0;
         for (int age : ages) {
             for (String ethnicity : ethnicities) {
                 if (countOfProfiles > numberOfProfiles) {
-                    return;
+                    return ProfileToolCallBackUtils.getProfiles();
                 }
-                String prompt = "Create a Tinder profile persona for a " + age + " year old " + ethnicity + " " + gender +
+                String prompt = "Create a Tinder profile persona for a " + age + " year old " + ethnicity + " " + gender + " "+
                         "including the first Name ,last Name , Myers-Briggs personality type and a tinder bio. Save the profile information using the saveProfile tool.";
 
                 String modelResponse = chatClient
@@ -41,6 +44,7 @@ public class ProfileCreationService {
                 countOfProfiles++;
             }
         }
+        return ProfileToolCallBackUtils.getProfiles();
     }
 
 }
