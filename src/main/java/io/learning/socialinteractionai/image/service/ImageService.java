@@ -13,11 +13,11 @@ import java.util.Map;
 
 @Service
 @Slf4j
-public class ImageCreationService {
+public class ImageService {
 
     private final WebClient imageCreationWebclient;
 
-    public ImageCreationService(WebClient imageCreationWebclient) {
+    public ImageService(WebClient imageCreationWebclient) {
         this.imageCreationWebclient = imageCreationWebclient;
     }
 
