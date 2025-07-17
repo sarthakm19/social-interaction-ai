@@ -2,7 +2,7 @@ package io.learning.socialinteractionai.profiles.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.learning.socialinteractionai.profiles.Profile;
-import io.learning.socialinteractionai.profiles.ProfileRepository;
+import io.learning.socialinteractionai.profiles.repository.ProfileRepository;
 import io.learning.socialinteractionai.profiles.ProfileToolCallBack;
 import io.learning.socialinteractionai.utility.ProfileToolCallBackUtils;
 import lombok.extern.slf4j.Slf4j;

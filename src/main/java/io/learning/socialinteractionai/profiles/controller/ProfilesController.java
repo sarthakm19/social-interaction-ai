@@ -1,4 +1,4 @@
-package io.learning.socialinteractionai.profile;
+package io.learning.socialinteractionai.profiles.controller;
 
 import io.learning.socialinteractionai.profiles.Profile;
 import io.learning.socialinteractionai.profiles.service.ProfileService;

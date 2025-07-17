@@ -1,5 +1,6 @@
-package io.learning.socialinteractionai.profiles;
+package io.learning.socialinteractionai.profiles.repository;
 
+import io.learning.socialinteractionai.profiles.Profile;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.mongodb.repository.Aggregation;
