@@ -4,7 +4,7 @@ import java.util.List;
 
 import io.learning.socialinteractionai.conversations.ConversationRepository;
 import io.learning.socialinteractionai.profiles.Profile;
-import io.learning.socialinteractionai.profiles.ProfileRepository;
+import io.learning.socialinteractionai.profiles.repository.ProfileRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

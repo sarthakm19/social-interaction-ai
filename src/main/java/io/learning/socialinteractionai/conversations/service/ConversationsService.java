@@ -8,7 +8,7 @@ import io.learning.socialinteractionai.conversations.ConversationRepository;
 import io.learning.socialinteractionai.conversations.ConversationRequest;
 import io.learning.socialinteractionai.profiles.Profile;
 import io.learning.socialinteractionai.profiles.ProfileNotFoundException;
-import io.learning.socialinteractionai.profiles.ProfileRepository;
+import io.learning.socialinteractionai.profiles.repository.ProfileRepository;
 
 
 @Service
