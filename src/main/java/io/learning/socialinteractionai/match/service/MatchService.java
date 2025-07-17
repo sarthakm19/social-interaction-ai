@@ -15,9 +15,9 @@ import java.util.UUID;
 @Service
 public class MatchService {
 
-    private MatchRepository matchRepository = null;
-    private ConversationRepository conversationRepository = null;
-    private ProfileRepository profileRepository = null;
+    private final MatchRepository matchRepository;
+    private final ConversationRepository conversationRepository;
+    private final ProfileRepository profileRepository;
 
     public MatchService(ConversationRepository conversationRepository, MatchRepository matchRepository , ProfileRepository profileRepository) {
         this.matchRepository = matchRepository;

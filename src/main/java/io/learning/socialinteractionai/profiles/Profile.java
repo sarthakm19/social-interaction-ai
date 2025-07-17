@@ -1,9 +1,6 @@
 package io.learning.socialinteractionai.profiles;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.learning.socialinteractionai.match.entity.Match;
-
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Profile(
